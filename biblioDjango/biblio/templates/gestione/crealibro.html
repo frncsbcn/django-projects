@@ -1,0 +1,24 @@
+{% extends "../base.html" %}
+{% block head %} {% endblock %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+    <h1>{{ title }}</h1>
+    
+    {% if message == "" %}
+        <form action="/gestione/crealibro">
+            <label for="autore">Autore:</label><br>
+            <input type="text" id="autore" name="autore"><br>
+            <label for="titolo">Titolo:</label><br>
+            <input type="text" id="titolo" name="titolo"><br>
+            <label for="pagine">Pagine:</label><br>
+            <input type="text" id="pagine" name="pagine"><br><br>
+            <input type="submit" value="Aggiungi libro">
+        </form>
+    {% else %}
+        <p>{{ message }}</p>
+        <a href={% url 'gestione:lista' %}>Lista libri</a>
+    {% endif %}
+    </div>
+{% endblock %}

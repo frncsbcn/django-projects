@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{ titolo }} {% endblock %}
+
+{% block content %}
+    {% for i in object_list %}
+        <ul>{{ i.titolo }}</ul>
+        {% if i.studenti.all.count == 0 %}
+            Nessuno studente iscritto. 
+        {% else %}
+            {% for s in i.studenti.all %}
+                <li>{{ s.nome }} {{ s.cognome }}</li>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

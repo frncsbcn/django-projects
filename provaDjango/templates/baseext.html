@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+  <h1>
+    {% if user.is_authenticated %}
+      Ciao, {{ user.name }}!
+    {% else %}
+      Ciao, guest!
+    {% endif %}
+  </h1>
+
+  {% for i in lista %}
+    <p> {{ i }} </p>
+  {% endfor %}
+
+{% endblock %}
